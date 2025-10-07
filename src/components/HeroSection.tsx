@@ -17,7 +17,7 @@ export default function HeroSection() {
         <div className="relative z-10 container mx-auto max-w-6xl py-16 md:py-24 px-4 md:px-6">
           {/* Main Headline */}
           <div className="max-w-4xl mb-12 md:mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-white">
               Executive Education for the AI Era
             </h1>
 
