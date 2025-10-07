@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -12,6 +12,22 @@ import {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setEventsDropdownOpen(false);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -65,11 +81,40 @@ export default function Header() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/events" legacyBehavior passHref>
-                <NavigationMenuLink className="text-white hover:text-pale-blue">
+              <div ref={dropdownRef} className="relative">
+                <button 
+                  onClick={() => setEventsDropdownOpen(!eventsDropdownOpen)}
+                  className="text-white hover:text-pale-blue flex items-center"
+                >
                   Events
-                </NavigationMenuLink>
-              </Link>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    className="ml-1 w-4 h-4"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                
+                {eventsDropdownOpen && (
+                  <div className="absolute left-0 mt-2 py-2 w-56 bg-deep-navy shadow-xl rounded-md z-50">
+                    <Link 
+                      href="/events/all"
+                      className="block px-4 py-2 text-white hover:bg-royal-blue/20 text-sm"
+                      onClick={() => setEventsDropdownOpen(false)}
+                    >
+                      <div>
+                        <div>Conferences, Seminar</div>
+                        <div>and Workshops</div>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/contact" legacyBehavior passHref>
@@ -161,13 +206,17 @@ export default function Header() {
               >
                 Our Clients
               </Link>
-              <Link 
-                href="/events" 
-                className="text-white text-lg font-medium hover:text-pale-blue"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Events
-              </Link>
+              <div className="flex flex-col items-center">
+                <span className="text-white text-lg font-medium mb-2">Events</span>
+                <Link 
+                  href="/events/all" 
+                  className="text-white/80 text-base hover:text-pale-blue text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <div>Conferences, Seminar</div>
+                  <div>and Workshops</div>
+                </Link>
+              </div>
               <Link 
                 href="/contact" 
                 className="text-white text-lg font-medium hover:text-pale-blue"

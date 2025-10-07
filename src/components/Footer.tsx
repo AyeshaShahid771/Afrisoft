@@ -84,6 +84,14 @@ export default function Footer() {
                 <h3 className="font-bold text-sm mb-3 uppercase tracking-wider text-center md:text-left">
                   Programs
                 </h3>
+                <div className="mb-3 text-center md:text-left">
+                  <p className="text-sm text-white/80 leading-tight">
+                    Conferences  Seminar and 
+                  </p>
+                  <p className="text-sm text-white/80 leading-tight">
+                    Workshops
+                  </p>
+                </div>
                 <ul className="space-y-2 text-sm text-white/70 text-center md:text-left">
                   <li>
                     <Link href="/executive-ed" className="hover:text-pale-blue">
