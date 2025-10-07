@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
+:root {
+  /* Blue & White Palette */
+  --deep-navy-blue: #001f54;
+  --royal-blue: #003f88;
+  --azure-blue: #0077b6;
+  --sky-blue: #00b4d8;
+  --powder-blue: #90e0ef;
+  --pale-blue: #caf0f8;
+  --pure-white: #ffffff;
+
+  /* System colors */
+  --background: var(--pure-white);
+  --foreground: #171717;
+
+  /* Component colors */
+  --primary: var(--royal-blue);
+  --primary-foreground: var(--pure-white);
+  --secondary: var(--azure-blue);
+  --secondary-foreground: var(--pure-white);
+  --accent: var(--sky-blue);
+  --accent-foreground: var(--deep-navy-blue);
+  --muted: var(--pale-blue);
+  --muted-foreground: var(--deep-navy-blue);
+  --card: var(--pure-white);
+  --card-foreground: var(--deep-navy-blue);
+  --border: var(--powder-blue);
+  --input: var(--powder-blue);
+  --header-bg: var(--deep-navy-blue);
+  --header-text: var(--pure-white);
+}
+
+/* Theme variables */
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-section {
+  background-color: var(--deep-navy-blue);
+  color: var(--pure-white);
+}
+
+.header {
+  background-color: var(--deep-navy-blue);
+  color: var(--pure-white);
+}
+
+.footer {
+  background-color: var(--deep-navy-blue);
+  color: var(--pure-white);
+}
+
+.card-container {
+  background-color: var(--pure-white);
+  border: 1px solid var(--powder-blue);
+}
+
+.accent-bg {
+  background-color: var(--azure-blue);
+}
+
+.light-bg {
+  background-color: var(--pale-blue);
+}
+
+/* Utility classes for our color palette */
+.text-deep-navy {
+  color: var(--deep-navy-blue);
+}
+.text-royal-blue {
+  color: var(--royal-blue);
+}
+.text-azure-blue {
+  color: var(--azure-blue);
+}
+.text-sky-blue {
+  color: var(--sky-blue);
+}
+
+.bg-deep-navy {
+  background-color: var(--deep-navy-blue);
+}
+.bg-royal-blue {
+  background-color: var(--royal-blue);
+}
+.bg-azure-blue {
+  background-color: var(--azure-blue);
+}
+.bg-sky-blue {
+  background-color: var(--sky-blue);
+}
+.bg-powder-blue {
+  background-color: var(--powder-blue);
+}
+.bg-pale-blue {
+  background-color: var(--pale-blue);
 }
