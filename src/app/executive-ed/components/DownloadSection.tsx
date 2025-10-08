@@ -15,7 +15,7 @@ export default function DownloadSection() {
       return;
     }
 
-    const fileName = 'ai.pdf';
+  const fileName = 'AI Executive Education.pdf';
 
     try {
       downloadInProgress.current = true;
@@ -81,11 +81,11 @@ export default function DownloadSection() {
       />
       <div className="container mx-auto max-w-4xl relative z-20">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#012a4a] mb-6 md:mt-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mt-6">
             Ready to Transform Your Leadership with AI?
           </h2>
-          <div className="h-0.5 w-24 bg-royal-blue mx-auto mb-6"></div>
-          <p className="text-base md:text-xl mb-8 md:mb-10 text-[#012a4a] max-w-2xl mx-auto font-bold">
+          <div className="h-0.5 w-24 bg-white mx-auto mb-6"></div>
+          <p className="text-base md:text-xl mb-8 md:mb-10 text-white max-w-2xl mx-auto font-bold">
             Download our comprehensive Executive Education course modules to learn more about our programs and outcomes.
           </p>
 
@@ -111,7 +111,7 @@ export default function DownloadSection() {
                       <path d="M9 2a1 1 0 011 1v8.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 011.414-1.414L9 11.586V3a1 1 0 011-1z" />
                       <path d="M3 16a1 1 0 011-1h12a1 1 0 011 1v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1z" />
                     </svg>
-                    Download PDF
+                    Download course modules
                   </>
                 )}
               </div>
