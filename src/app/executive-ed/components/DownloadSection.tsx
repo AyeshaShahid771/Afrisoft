@@ -37,23 +37,47 @@ export default function DownloadSection() {
       }
 
       const blob = await response.blob();
+
+      // Fallback: if the blob is empty, redirect to the API route (server will handle Content-Disposition)
       if (!blob || blob.size === 0) {
-        throw new Error('Downloaded file is empty');
+        console.warn('Blob empty or unsupported; falling back to direct navigation');
+        window.location.href = '/api/download';
+        return;
       }
 
+      // IE fallback: use msSaveOrOpenBlob if available
+      // @ts-ignore - navigator may contain msSaveOrOpenBlob in IE
+      if (window.navigator && (window.navigator as any).msSaveOrOpenBlob) {
+        try {
+          (window.navigator as any).msSaveOrOpenBlob(blob, fileName);
+          console.log('Saved using msSaveOrOpenBlob');
+          return;
+        } catch (ieErr) {
+          console.warn('msSaveOrOpenBlob failed, falling back to anchor download', ieErr);
+        }
+      }
+
+      // Standard approach: create object URL and use anchor download if supported
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', fileName);
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-
-      // Clean up
-      setTimeout(() => {
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-      }, 100);
+      // Only set download if supported
+      if ('download' in HTMLAnchorElement.prototype) {
+        link.setAttribute('download', fileName);
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        // Clean up
+        setTimeout(() => {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        }, 100);
+        console.log('Download triggered via anchor.download');
+      } else {
+        // If download attribute is not supported, navigate to the API to let server handle it
+        console.warn('download attribute not supported; falling back to direct navigation');
+        window.location.href = '/api/download';
+      }
 
       console.log('Download completed successfully');
     } catch (error) {
