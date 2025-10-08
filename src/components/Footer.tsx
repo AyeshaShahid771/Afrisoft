@@ -9,9 +9,9 @@ export default function Footer() {
   const scrollToSection = (elementId: string) => {
     const element = document.getElementById(elementId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -35,20 +35,20 @@ export default function Footer() {
                 />
               </div>
               <div className="flex flex-col items-center md:items-start">
-                <a 
+                <a
                   href="https://www.linkedin.com/in/ahmad-hassan-afridi-ph-d-46276521?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   target="_blank"
-                  rel="noopener noreferrer" 
+                  rel="noopener noreferrer"
                   className="flex items-center text-sm text-white/75 hover:text-pale-blue"
                 >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="w-4 h-4 mr-2"
                   >
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -61,20 +61,20 @@ export default function Footer() {
                   href="mailto:ahmad.afridi@gmail.com"
                   className="flex items-center text-sm text-white/75 hover:text-pale-blue mt-2"
                 >
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     className="w-4 h-4 mr-2"
                   >
                     <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                   </svg>
-                  ahmad.afridi@gmail.com
+                  info@afrisoftai.com
                 </a>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function Footer() {
                 </h3>
                 <div className="mb-3 text-center md:text-left">
                   <p className="text-sm text-white/80 leading-tight">
-                    Conferences  Seminar and 
+                    Conferences Seminar and
                   </p>
                   <p className="text-sm text-white/80 leading-tight">
                     Workshops
@@ -99,7 +99,10 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/research-consultancy" className="hover:text-pale-blue whitespace-nowrap">
+                    <Link
+                      href="/research-consultancy"
+                      className="hover:text-pale-blue whitespace-nowrap"
+                    >
                       Research Consultancy
                     </Link>
                   </li>
@@ -112,11 +115,11 @@ export default function Footer() {
                 </h3>
                 <ul className="space-y-2 text-sm text-white/70 text-center md:text-left">
                   <li>
-                    <a 
-                      href="#core-offerings" 
+                    <a
+                      href="#core-offerings"
                       onClick={(e) => {
                         e.preventDefault();
-                        scrollToSection('core-offerings');
+                        scrollToSection("core-offerings");
                       }}
                       className="hover:text-pale-blue cursor-pointer"
                     >
@@ -124,11 +127,11 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a 
-                      href="#why-choose-us" 
+                    <a
+                      href="#why-choose-us"
                       onClick={(e) => {
                         e.preventDefault();
-                        scrollToSection('why-choose-us');
+                        scrollToSection("why-choose-us");
                       }}
                       className="hover:text-pale-blue cursor-pointer"
                     >

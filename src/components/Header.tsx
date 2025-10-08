@@ -14,21 +14,24 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setEventsDropdownOpen(false);
       }
     };
-    
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -82,27 +85,27 @@ export default function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <div ref={dropdownRef} className="relative">
-                <button 
+                <button
                   onClick={() => setEventsDropdownOpen(!eventsDropdownOpen)}
                   className="text-white hover:text-pale-blue flex items-center"
                 >
                   Events
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="24" 
-                    height="24" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
                     className="ml-1 w-4 h-4"
                   >
                     <path d="M6 9l6 6 6-6" />
                   </svg>
                 </button>
-                
+
                 {eventsDropdownOpen && (
                   <div className="absolute left-0 mt-2 py-2 w-56 bg-deep-navy shadow-xl rounded-md z-50">
-                    <Link 
+                    <Link
                       href="/events/all"
                       className="block px-4 py-2 text-white hover:bg-royal-blue/20 text-sm"
                       onClick={() => setEventsDropdownOpen(false)}
@@ -135,8 +138,8 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <div className="md:hidden z-20">
-          <button 
-            className="text-white p-2" 
+          <button
+            className="text-white p-2"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -178,38 +181,40 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="fixed inset-0 bg-deep-navy z-10 md:hidden flex flex-col items-center justify-center">
             <nav className="flex flex-col items-center space-y-6">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
-              <Link 
-                href="/executive-ed" 
+              <Link
+                href="/executive-ed"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Executive Ed
               </Link>
-              <Link 
-                href="/research-consultancy" 
+              <Link
+                href="/research-consultancy"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Research Consultancy
               </Link>
-              <Link 
-                href="/clients" 
+              <Link
+                href="/clients"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Our Clients
               </Link>
               <div className="flex flex-col items-center">
-                <span className="text-white text-lg font-medium mb-2">Events</span>
-                <Link 
-                  href="/events/all" 
+                <span className="text-white text-lg font-medium mb-2">
+                  Events
+                </span>
+                <Link
+                  href="/events/all"
                   className="text-white/80 text-base hover:text-pale-blue text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -217,15 +222,15 @@ export default function Header() {
                   <div>and Workshops</div>
                 </Link>
               </div>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact Us
               </Link>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >

@@ -6,7 +6,10 @@ import { Button } from "@/components/ui/button";
 
 export default function CoreOfferings() {
   return (
-    <section id="core-offerings" className="bg-white py-16 md:py-24 px-4 md:px-6 overflow-hidden">
+    <section
+      id="core-offerings"
+      className="bg-white py-16 md:py-24 px-4 md:px-6 overflow-hidden"
+    >
       <div className="container mx-auto max-w-6xl">
         {/* Header Section with Intro Text */}
         <div className="mb-12 md:mb-16 text-center">
