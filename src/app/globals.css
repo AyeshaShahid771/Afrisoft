@@ -49,6 +49,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Improve desktop readability: increase root font-size at md and lg breakpoints
+   Tailwind's default breakpoints use min-width media queries; we match common
+   md (768px) and lg (1024px) thresholds to scale up the base font-size. */
+@media (min-width: 768px) {
+  html {
+    font-size: 17px; /* slightly larger than default but reduced from previous 18px */
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px; /* reduce slightly so large screens are not too big */
+  }
+}
+
+/* Optional utilities for particularly large headings used site-wide */
+.lead-heading { font-size: 2rem; } /* slightly smaller lead heading */
+.lead-sub { font-size: 1.0625rem; } /* slightly smaller sub */
+
 .hero-section {
   background-color: var(--deep-navy-blue);
   color: var(--pure-white);
@@ -108,4 +127,21 @@ body {
 }
 .bg-pale-blue {
   background-color: var(--pale-blue);
+}
+
+/* Hide carousel/slider pagination dots inside specific sections where we don't want swipe indicators */
+.research-offerings .slick-dots,
+.research-offerings .swiper-pagination,
+.research-offerings .glide__bullets,
+.research-offerings .splide__pagination,
+.research-offerings .carousel-indicators,
+.research-offerings .control-dots,
+.research-offerings .carousel-dots,
+.research-offerings .slider-dots,
+.research-offerings .dots,
+.research-offerings .pagination,
+.research-offerings .pagination-bullets,
+.research-offerings .paginationBullet,
+.research-offerings .embla__dots {
+  display: none !important;
 }

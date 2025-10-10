@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-deep-navy w-full py-2 md:py-3 px-4 md:px-10 sticky top-0 z-50">
+  <header className="bg-deep-navy w-full py-2 md:py-3 px-4 md:px-10 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center -ml-2 md:-ml-8">
           <Link href="/" className="flex items-center z-20">
@@ -77,7 +77,7 @@ export default function Header() {
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/clients" legacyBehavior passHref>
+              <Link href="/our-clients" legacyBehavior passHref>
                 <NavigationMenuLink className="text-white hover:text-pale-blue">
                   Our Clients
                 </NavigationMenuLink>
@@ -203,7 +203,7 @@ export default function Header() {
                 Research Consultancy
               </Link>
               <Link
-                href="/clients"
+                href="/our-clients"
                 className="text-white text-lg font-medium hover:text-pale-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >

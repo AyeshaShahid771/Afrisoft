@@ -20,7 +20,9 @@ export default function ImpactSection() {
             </div>
           </div>
           <div className="w-1/2">
-            <h2 className="text-2xl md:text-4xl font-bold text-deep-navy mb-4">Our Impact</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-deep-navy mb-4">
+              Our Impact
+            </h2>
             <div className="h-0.5 w-24 bg-royal-blue mb-8"></div>
             <p className="text-sm md:text-lg text-gray-700 mb-6 leading-relaxed">
               Our executive education programs go beyond theory. We help

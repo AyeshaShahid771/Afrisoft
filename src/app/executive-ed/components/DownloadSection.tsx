@@ -5,43 +5,47 @@ import { Button } from "@/components/ui/button";
 
 export default function DownloadSection() {
   const [isDownloading, setIsDownloading] = useState(false);
-  const [downloadError, setDownloadError] = useState('');
+  const [downloadError, setDownloadError] = useState("");
   const downloadInProgress = useRef(false);
 
   const handleDownload = async () => {
     // Prevent multiple simultaneous downloads
     if (downloadInProgress.current || isDownloading) {
-      console.log('Download already in progress, ignoring click');
+      console.log("Download already in progress, ignoring click");
       return;
     }
 
-  const fileName = 'AI Executive Education.pdf';
+    const fileName = "AI Executive Education.pdf";
 
     try {
       downloadInProgress.current = true;
       setIsDownloading(true);
-      setDownloadError('');
+      setDownloadError("");
 
-      console.log('Starting download...');
+      console.log("Starting download...");
 
       const response = await fetch(`/api/download`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Cache-Control': 'no-cache',
+          "Cache-Control": "no-cache",
         },
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(errorData.error || 'Failed to download the file.');
+        const errorData = await response
+          .json()
+          .catch(() => ({ error: "Unknown error" }));
+        throw new Error(errorData.error || "Failed to download the file.");
       }
 
       const blob = await response.blob();
 
       // Fallback: if the blob is empty, redirect to the API route (server will handle Content-Disposition)
       if (!blob || blob.size === 0) {
-        console.warn('Blob empty or unsupported; falling back to direct navigation');
-        window.location.href = '/api/download';
+        console.warn(
+          "Blob empty or unsupported; falling back to direct navigation"
+        );
+        window.location.href = "/api/download";
         return;
       }
 
@@ -50,21 +54,24 @@ export default function DownloadSection() {
       if (window.navigator && (window.navigator as any).msSaveOrOpenBlob) {
         try {
           (window.navigator as any).msSaveOrOpenBlob(blob, fileName);
-          console.log('Saved using msSaveOrOpenBlob');
+          console.log("Saved using msSaveOrOpenBlob");
           return;
         } catch (ieErr) {
-          console.warn('msSaveOrOpenBlob failed, falling back to anchor download', ieErr);
+          console.warn(
+            "msSaveOrOpenBlob failed, falling back to anchor download",
+            ieErr
+          );
         }
       }
 
       // Standard approach: create object URL and use anchor download if supported
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
+      const link = document.createElement("a");
       link.href = url;
       // Only set download if supported
-      if ('download' in HTMLAnchorElement.prototype) {
-        link.setAttribute('download', fileName);
-        link.style.display = 'none';
+      if ("download" in HTMLAnchorElement.prototype) {
+        link.setAttribute("download", fileName);
+        link.style.display = "none";
         document.body.appendChild(link);
         link.click();
         // Clean up
@@ -72,17 +79,21 @@ export default function DownloadSection() {
           document.body.removeChild(link);
           window.URL.revokeObjectURL(url);
         }, 100);
-        console.log('Download triggered via anchor.download');
+        console.log("Download triggered via anchor.download");
       } else {
         // If download attribute is not supported, navigate to the API to let server handle it
-        console.warn('download attribute not supported; falling back to direct navigation');
-        window.location.href = '/api/download';
+        console.warn(
+          "download attribute not supported; falling back to direct navigation"
+        );
+        window.location.href = "/api/download";
       }
 
-      console.log('Download completed successfully');
+      console.log("Download completed successfully");
     } catch (error) {
-      console.error('Download error:', error);
-      setDownloadError('There was an error downloading the file. Please try again later.');
+      console.error("Download error:", error);
+      setDownloadError(
+        "There was an error downloading the file. Please try again later."
+      );
     } finally {
       setIsDownloading(false);
       // Reset the ref after a short delay to prevent accidental double-clicks
@@ -96,8 +107,8 @@ export default function DownloadSection() {
     <section className="relative py-12 md:py-24 px-4 overflow-hidden">
       {/* subtle dim overlay (lighter on desktop) */}
       <div className="absolute inset-0 z-10 bg-[#012a4a]/30 md:bg-[#012a4a]/20"></div>
-      <Image 
-        src="/h3.jpg" 
+      <Image
+        src="/h3.jpg"
         alt="Background"
         fill
         className="object-cover blur-none md:blur-[1px] z-0 md:opacity-100 opacity-60"
@@ -110,11 +121,12 @@ export default function DownloadSection() {
           </h2>
           <div className="h-0.5 w-24 bg-white mx-auto mb-6"></div>
           <p className="text-base md:text-xl mb-8 md:mb-10 text-white max-w-2xl mx-auto font-bold">
-            Download our comprehensive Executive Education course modules to learn more about our programs and outcomes.
+            Download our comprehensive Executive Education course modules to
+            learn more about our programs and outcomes.
           </p>
 
           <div className="flex items-center justify-center gap-4">
-            <Button 
+            <Button
               onClick={handleDownload}
               className="bg-[#012a4a] text-white hover:bg-[#013a5a] hover:text-white px-6 md:px-10 py-3 md:py-6 text-base md:text-lg rounded-full"
               disabled={isDownloading}
@@ -123,15 +135,37 @@ export default function DownloadSection() {
               <div className="flex items-center gap-3">
                 {isDownloading ? (
                   <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
                     </svg>
                     Downloading...
                   </>
                 ) : (
                   <>
-                    <svg className="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                    <svg
+                      className="h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden
+                    >
                       <path d="M9 2a1 1 0 011 1v8.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 011.414-1.414L9 11.586V3a1 1 0 011-1z" />
                       <path d="M3 16a1 1 0 011-1h12a1 1 0 011 1v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1z" />
                     </svg>
