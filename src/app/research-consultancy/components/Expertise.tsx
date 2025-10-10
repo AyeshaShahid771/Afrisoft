@@ -81,7 +81,7 @@ export default function Expertise() {
 
               <div className="flex justify-end md:justify-end items-start">
                 <div className="rounded-xl shadow-lg md:rounded-none md:shadow-none md:overflow-visible md:h-auto">
-                  <img src="/expertise.jpg" alt="Team" className="w-full md:w-[420px] md:h-[420px] object-contain md:rounded-none block" />
+                  <img src="/expertise.jpeg" alt="Team" className="w-full md:w-[420px] md:h-[420px] object-contain md:rounded-none block" />
                 </div>
               </div>
             </div>
