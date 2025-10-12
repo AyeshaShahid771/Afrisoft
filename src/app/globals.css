@@ -65,8 +65,12 @@ body {
 }
 
 /* Optional utilities for particularly large headings used site-wide */
-.lead-heading { font-size: 2rem; } /* slightly smaller lead heading */
-.lead-sub { font-size: 1.0625rem; } /* slightly smaller sub */
+.lead-heading {
+  font-size: 2rem;
+} /* slightly smaller lead heading */
+.lead-sub {
+  font-size: 1.0625rem;
+} /* slightly smaller sub */
 
 .hero-section {
   background-color: var(--deep-navy-blue);

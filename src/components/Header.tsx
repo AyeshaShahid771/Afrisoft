@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-  <header className="bg-deep-navy w-full py-2 md:py-3 px-4 md:px-10 sticky top-0 z-50">
+    <header className="bg-deep-navy w-full py-2 md:py-3 px-4 md:px-10 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center -ml-2 md:-ml-8">
           <Link href="/" className="flex items-center z-20">
@@ -104,16 +104,13 @@ export default function Header() {
                 </button>
 
                 {eventsDropdownOpen && (
-                  <div className="absolute left-0 mt-2 py-2 w-56 bg-deep-navy shadow-xl rounded-md z-50">
+                  <div className="absolute left-0 mt-2 py-3 w-64 bg-deep-navy shadow-xl rounded-md z-50">
                     <Link
-                      href="/events/all"
+                      href="/events/conferences"
                       className="block px-4 py-2 text-white hover:bg-royal-blue/20 text-sm"
                       onClick={() => setEventsDropdownOpen(false)}
                     >
-                      <div>
-                        <div>Conferences, Seminar</div>
-                        <div>and Workshops</div>
-                      </div>
+                      Conferences, Seminars & Workshops
                     </Link>
                   </div>
                 )}
@@ -214,12 +211,11 @@ export default function Header() {
                   Events
                 </span>
                 <Link
-                  href="/events/all"
+                  href="/events/conferences"
                   className="text-white/80 text-base hover:text-pale-blue text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div>Conferences, Seminar</div>
-                  <div>and Workshops</div>
+                  Conferences, Seminars & Workshops
                 </Link>
               </div>
               <Link
