@@ -70,10 +70,10 @@ export default function ContactPage() {
           <ContactCard
             title="Connect on LinkedIn"
             subtitle="Find our team and company page"
-            href="https://www.linkedin.com/in/ahmad-hassan-afridi-ph-d-46276521/"
+            href="https://www.linkedin.com/company/109439037/admin/dashboard/"
             external
             accent="from-[#071a4b] to-[#0b57a6]"
-            ariaLabel="Ahmad Hassan Afridi LinkedIn"
+            ariaLabel="Afrisoft LinkedIn"
             icon={
               <svg
                 viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ export default function ContactPage() {
               </svg>
             }
           >
-            linkedin.com/in/ahmad-hassan-afridi-ph-d-46276521
+            linkedin.com/company/109439037
           </ContactCard>
         </section>
       </main>
