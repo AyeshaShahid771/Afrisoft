@@ -149,3 +149,38 @@ body {
 .research-offerings .embla__dots {
   display: none !important;
 }
+
+/*
+  Cropping wrapper for embedded iframes (used for Google Forms).
+  We cannot change the content of a cross-origin iframe, so we visually
+  crop and shift it instead. Adjust --form-footer-offset to hide more/less
+  of the bottom area (the Google Forms footer/help icon).
+*/
+:root {
+  --form-footer-offset: 72px; /* tweak this value to hide the footer height */
+}
+
+.iframe-crop {
+  overflow: hidden;
+  max-width: 100%;
+  /* the container's height is controlled inline by the component (3200px before submit,
+     1500px after). Anchor children to the top so only the bottom of the iframe is cropped. */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ensure iframe sits at the top of the container */
+}
+
+.iframe-crop iframe.contact-form-iframe {
+  width: 100%;
+  /* make the iframe slightly taller than the visible container so the bottom
+     (Google footer) is outside the viewport and hidden by overflow. Do NOT
+     translate the iframe upward — that was cropping the top of the form. */
+  height: calc(100% + var(--form-footer-offset));
+  border: 0;
+  display: block;
+  margin: 0; /* keep iframe aligned to top */
+}
+
+/* Small accessibility note: ensure keyboard scrolling still reaches iframe.
+   If you need the whole form visible, reduce the container height or remove
+   this cropping approach and allow the full iframe to show. */

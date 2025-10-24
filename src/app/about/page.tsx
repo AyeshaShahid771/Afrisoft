@@ -15,15 +15,16 @@ export default function AboutPage() {
 
       <main className="bg-white">
         <AboutHero />
-  <History />
+        <History />
         <Founders />
 
         <section className="bg-gradient-to-r from-[#071a4b] to-[#0b57a6] text-white py-12">
           <div className="container mx-auto px-6 text-center">
             <h3 className="text-xl md:text-2xl font-bold">Looking ahead</h3>
             <p className="mt-3 max-w-3xl mx-auto opacity-90">
-              Afrisoft will continue to publish research, run executive education, and build partnerships that bring ethical, practical AI to
-              organizations across the GCC and beyond.
+              Afrisoft will continue to publish research, run executive
+              education, and build partnerships that bring ethical, practical AI
+              to organizations across the GCC and beyond.
             </p>
           </div>
         </section>

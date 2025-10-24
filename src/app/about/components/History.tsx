@@ -50,9 +50,14 @@ export default function History() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {timeline.map((item) => (
-          <div key={item.title} className="relative bg-white border rounded-lg p-4 shadow-sm">
+          <div
+            key={item.title}
+            className="relative bg-white border rounded-lg p-4 shadow-sm"
+          >
             <div className="absolute -top-3 right-4">
-              <div className="bg-gradient-to-r from-[#0b57a6] to-[#071a4b] text-white px-2 py-0.5 rounded-full text-xs font-semibold">{item.year}</div>
+              <div className="bg-gradient-to-r from-[#0b57a6] to-[#071a4b] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
+                {item.year}
+              </div>
             </div>
 
             <h4 className="font-semibold text-sm">{item.title}</h4>
@@ -60,8 +65,21 @@ export default function History() {
             <ul className="mt-2 space-y-1 text-xs text-slate-600">
               {item.bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="mt-1 flex-shrink-0 text-[#0b57a6]">
-                    <circle cx="12" cy="12" r="8" stroke="#0b57a6" strokeWidth="1.5" fill="#0b57a6" />
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="mt-1 flex-shrink-0 text-[#0b57a6]"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="8"
+                      stroke="#0b57a6"
+                      strokeWidth="1.5"
+                      fill="#0b57a6"
+                    />
                   </svg>
                   <span>{b}</span>
                 </li>

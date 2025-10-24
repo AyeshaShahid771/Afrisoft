@@ -2,7 +2,10 @@ import Image from "next/image";
 
 const cards = [
   { title: "Executive Education", desc: "5-day bootcamps for leaders" },
-  { title: "Applied Research", desc: "Health digital twins & recommender systems" },
+  {
+    title: "Applied Research",
+    desc: "Health digital twins & recommender systems",
+  },
   { title: "Consultancy", desc: "AI governance and LLM solutions" },
 ];
 

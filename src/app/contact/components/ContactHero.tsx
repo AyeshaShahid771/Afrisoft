@@ -16,7 +16,13 @@ export default function ContactHero() {
 
           <div className="md:col-span-5 flex justify-center md:justify-end">
             <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-xl overflow-hidden ring-4 ring-white/60 shadow-lg">
-              <Image src="/h1.jpg" alt="Contact us" width={720} height={720} className="object-cover w-full h-full" />
+              <Image
+                src="/h1.jpg"
+                alt="Contact us"
+                width={720}
+                height={720}
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>
