@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <header className="relative h-[56vh] md:h-[76vh] w-full overflow-hidden bg-deep-navy">
       <Image
-        src="/image2.jpeg"
+        src="/event.jpg"
         alt="Events hero"
         fill
         className="object-cover"
@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-20 flex items-start">
         <div className="container mx-auto px-4 pt-8 md:pt-20 relative">
           {/* Absolutely position the heading to move it higher while keeping the paragraph in normal flow */}
-          <h1 className="absolute left-0 top-0 translate-y-10 md:-translate-y 14 translate-x-4 md:translate-x-8 text-4xl md:text-6xl font-extrabold text-[#071a4b] max-w-4xl">
+          <h1 className="absolute left-0 top-0 translate-y-10 md:-translate-y 14 translate-x-4 md:translate-x-8 text-4xl md:text-6xl font-extrabold text-[#ffff] max-w-4xl">
             Events
           </h1>
           <div className="pt-20 md:pt-28">
